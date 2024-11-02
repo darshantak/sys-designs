@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>WebSocket Chat Test</h2>
+    <input id="message" type="text" placeholder="Enter message" />
+    <button onclick="sendMessage()">Send</button>
+    <ul id="messages"></ul>
+
+    <script>
+        let socket = new WebSocket("ws://localhost:7007/ws/join?room_id=1");
+
+        socket.onmessage = function(event) {
+            let messages = document.getElementById("messages");
+            let message = document.createElement("li");
+            message.textContent = event.data;
+            messages.appendChild(message);
+        };
+
+        function sendMessage() {
+            let input = document.getElementById("message");
+            socket.send(input.value);
+            input.value = "";
+        }
+    </script>
+</body>
+</html>
