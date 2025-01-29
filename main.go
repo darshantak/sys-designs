@@ -6,5 +6,5 @@ package main
 func main() {
 	// defer cmd.SaveStateAfterExec()
 	// cmd.Execute()
-	TaskManagerCLI()
+	SqlSystem()
 }
