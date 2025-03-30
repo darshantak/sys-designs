@@ -1,0 +1,56 @@
+- -> Refers to the variables
++ -> Refers to the methods
+
+class User:
+    - name: string
+    - contact: int
+
+class UserService:
+    - users: List[User]
+    + add_user(name, contact)
+
+enum PropertyType:
+    - FLAT
+    - INDEPENDENT
+
+enum DealType:
+    - RENT
+    - SALE
+
+class Property: 
+    - user: User
+    - type: PropertyType
+    - house_address: string
+    - location: string
+    - num_of_rooms: int
+    - price: int
+    - security_deposit: int
+    - deal_type: DealType
+    + buildProperty()
+
+class PropertyService:
+    - properties: List[Property]
+    + add_property(user,type,house_address,location,num_of_rooms,price,security_deposit,deal_type)
+    + search_property(filters.FILTER<1,2,3>)
+
+enum Status: 
+    - CONFIRMED
+    - CANCELLED
+
+class Booking:
+    - user_id: int
+    - booking_id: int
+
+class BookingService:
+    - users: UserService
+    - properties: PropertyService
+    - bookings: List[Booking]
+    + book_property(property, user)
+    + show_booking(user)
+    + cancel_booking(user_id,booking_id)
+
+
+Design Patterns that we will implement in this design:
+1. Service Pattern
+2. Strategy Pattern(for the filters)
+3. Factory Pattern(for building a property)
