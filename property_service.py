@@ -1,3 +1,4 @@
+import json
 from property import Property
 from enums.strategy import Strategy
 from strategy.by_num_rooms import ByRooms
@@ -12,11 +13,20 @@ class PropertyService:
         self.properties[user] = property
         return property
     
-    def search_property(self,strategy):
-        pass
+    def search_property(self,filters):
+        results = self.properties
+        
+        if "price" in filters:
+            obj = ByPriceRange(filters["price"])
+            results = obj.get_desired_property(results)
+                
+        if "num_of_rooms" in filters:
+            obj = ByRooms(filters["num_of_rooms"])
+            results = obj.get_desired_property(results)
+        
+        return results
     
-
-class StretegyFactory:
+class StrategyFactory:
     def __init__(self,strategy):
         self.strategy =  strategy
     
