@@ -1,0 +1,42 @@
+class User:
+  - userId: int
+  - reputation: string
+  - questions: []Question
+  - answers: []Answer
+  
+class Question:
+  - qid: int
+  - author: User
+  - content: string
+  - votes: int
+  - comments: []Comment
+  - tags: []string
+  - answers: []Answer
+  + addAnswer(Question, Answer)
+  + addComments(Servicable,comment)
+  + downVote(Servicable)
+  + upVote(Servicable)
+
+class Answer:
+  - aid: int
+  - author: User
+  - content: string
+  - votes: int
+  - comments: []Comment
+  + downVote(Servicable)
+  + upVote(Servicable)
+
+class Comment:
+  - cid: int
+  - author: User
+  - content: string
+
+interface Servicable:
+  + addComments(comment)
+  + downVote()
+  + upVote()
+
+class StackOverFlow:
+  + addUser(User)
+  + addQuestion(Question)
+  + searchQuestion(string)
