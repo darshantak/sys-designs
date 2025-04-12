@@ -3,7 +3,12 @@ class User:
   - reputation: string
   - questions: []Question
   - answers: []Answer
-  
+
+class UserService:
+  - users: map[string]User
+  + addQuestionsToUser(User,Question)
+  + addAnswersToUser(User,Answer)
+
 class Question:
   - qid: int
   - author: User
@@ -11,21 +16,27 @@ class Question:
   - votes: int
   - comments: []Comment
   - tags: []string
-  - answers: []Answer
-  + addAnswer(Question, Answer)
   + addComments(Servicable,comment)
   + downVote(Servicable)
   + upVote(Servicable)
 
+class QuestionService:
+  - questions: map[qid]Question
+  + addAnswerToQuestion(qid, Answer)
+  
 class Answer:
   - aid: int
   - author: User
   - content: string
   - votes: int
   - comments: []Comment
+  + addComments(Servicable,comment)
   + downVote(Servicable)
   + upVote(Servicable)
 
+class AnswerService:
+  - answers: map[aid]Answer
+  
 class Comment:
   - cid: int
   - author: User
@@ -36,7 +47,23 @@ interface Servicable:
   + downVote()
   + upVote()
 
+enum Topic:
+  - Question
+  - Answer
+
 class StackOverFlow:
-  + addUser(User)
-  + addQuestion(Question)
-  + searchQuestion(string)
+  - qs: QuestionService()
+  - as: AnswerService()
+  - us: UserService()
+  + addQuestion(qid:string, author:string, content:string)
+  + addAnswer(qid:string, aid:string, author:string, content:string)
+  + searchQuestionByTag(tags)
+  + addComments(topic:Topic, content:string)
+  + downVote(topic:Topic)
+  + upVote(topic:Topic)
+
+
+Patterns : 
+1. Strategy Pattern for searchQuestion
+2. Builder Pattern for questions
+3. Factory Pattern for creation of Post where Post can be both Question and Answer
