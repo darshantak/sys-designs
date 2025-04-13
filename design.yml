@@ -23,7 +23,7 @@ class Question:
 class QuestionService:
   - questions: map[qid]Question
   + addAnswerToQuestion(qid, Answer)
-  
+
 class Answer:
   - aid: int
   - author: User

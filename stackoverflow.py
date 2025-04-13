@@ -2,14 +2,19 @@ from user import User
 from question import Question
 from answer import Answer
 from comment import Comment
+from userService import UserService
+from answerService import AnswerService
+from questionService import QuestionService
+
 class StackOverFlowApp:
     def __init__(self) -> None:
-        self.users = {}
-        self.questions = {}
+        self.users = UserService()
+        self.questions = QuestionService()
+        self.answers = AnswerService()
         
     def addUser(self,userId):
         newUser = User(userId)
-        self.users[userId] = newUser
+        self.users.users[userId] = newUser
         return newUser
     
     def addQuestion(self,qid,authorId,content):
