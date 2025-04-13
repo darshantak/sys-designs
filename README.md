@@ -1,39 +1,14 @@
-# Low Level Design Patterns in Golang
+# Designing an Online Auction System
+In this article, we delve into the object-oriented design and implementation of an Online Auction System using Python.
 
-In this repository, we will design some common systems which might help you in your Low-Level Design (LLD) or Machine Coding rounds of your interview. Everything will be implemented in **Golang**. If you want to gain experience with Go, these designs will help you significantly in getting a grasp of the language.
+This system allows for the creation and management of auctions, user participation in bidding, and handling transactions.
 
-## Design Framework
-
-For Low-Level Designs, I have created a framework that you can use for any design you want to make. Please keep in mind that this template is based on my approach. Your design might differ, potentially including more features, but everything will follow this general template. As we all know that **No Design is a Perfect Design**.
-
-### Requirements
-
-1. **Functional Requirements**:
-   - What should the system do?
-
-2. **Non-Functional Requirements**:
-   - Considerations for speed, scale, and reliability.
-
-3. **Constraints**:
-   - Any limitations or restrictions.
-
-### Core Components
-
-Identify the key parts of the system.
-
-### Data Storage & Models
-
-- How will data be stored? (Database, data structures)
-- Define essential entities and their relationships.
-
-### Main Operations
-
-- Core actions and their algorithms.
-
-### Scalability
-
-- How will the system handle growth? (e.g., more users, more data)
-
-### Error Handling
-
-- Common and edge cases to consider.
+# Requirements
+- The online auction system should allow users to register and log in to their accounts.
+- Users should be able to create new auction listings with details such as item name, description, starting price, and auction duration.
+- Users should be able to browse and search for auction listings based on various criteria (e.g., item name, category, price range).
+- Users should be able to place bids on active auction listings.
+- The system should automatically update the current highest bid and notify the bidders accordingly.
+- The auction listing should end when the specified duration is reached, and the highest bidder should be declared the winner.
+- The system should handle concurrent access to auction listings and ensure data consistency.
+- The system should be extensible to accommodate future enhancements and new features.
