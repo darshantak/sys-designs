@@ -1,8 +1,12 @@
+
 class User:
 	def __init__(self, username, password):
 		self.username = username
 		self.password = password
 		
+	# def update(self, message):
+		# print(f"[NOTIFY] {self.username}: {message}")
+
 	def get_username(self):
 		return self.username
 

@@ -5,7 +5,12 @@ class UserService:
         
     def registerUser(self, username, password):
         newUser = User(username, password)
-        self.users[username] = newUser
+        # lock
+        if newUser not in self.users:
+            self.users[username] = newUser
+        else:
+            return False
+        # unlock
         return newUser
 
     def loginUser(self, username, password):

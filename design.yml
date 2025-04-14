@@ -40,7 +40,14 @@ class AuctionService:
   + createAuctionItem(aid int,name string,description string,startingPrice int,expirationTime string)
   + createBid(bidId int, item AuctionItem, user User, priceQuoted int)
 
-  
+class SearchStrategy:
+  + search(auction_items, **criteria)
+
+class NameSearchStrategy(SearchStrategy):
+  + search(auction_items,**criteria)
+
+
+
 1. Strategy Pattern for Searching
 2. Observer Pattern for notifying users
 3. Concurrent process of checking on an AuctionItem so that when it end, the highest bidder should be declared as the winner.

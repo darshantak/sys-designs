@@ -1,11 +1,11 @@
 from abc import ABC,abstractmethod
 
-class Observer(ABC):
+class Subscriber(ABC): #Subscriber
     @abstractmethod
     def update(self,message):
         pass
 
-class Subject(ABC):
+class Publisher(ABC): #Publisher
     @abstractmethod
     def add_observer(self,observer):
         pass
