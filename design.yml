@@ -1,0 +1,75 @@
+class SocialMediaApp:
+  - userService: UserService()
+  - profileService: ProfileService()
+  - connectionService: ConnectionService()
+  + createAccount(name,email,password string): User
+  + loginUser(email,password string): User
+  + createProfile(user User, bio, interests, profilePicture): Profile
+  + updateProfile(user User, **kwargs): bool
+  + sendConnectionRequest(byUser User, toUser User): bool
+  + acceptConnectionRequest(user User, toAcceptuser User): bool
+  + declineConnectionRequest(user User, toAcceptuser User): bool
+  + listConnections(user User): []Connection
+  + createPost(description string, image string, likes int, comments string): bool
+  + likePost(user User, post Post): bool
+  + commentPost(user User, post Post, comment string): bool
+  + listPost(user User): []Post
+  + loadNewsFeed(user User): []Post
+
+
+class User:
+  - name: string
+  - email: string
+  - password: password
+
+class UserService:
+  - users: map[name]User
+  + createAccount(name,email,password string): User
+  + loginUser(email,password string): User
+
+class Profile:
+  - bio: string
+  - profilePicture: blob
+  - interests: []string
+
+class ProfileService:
+  - profiles: map[User]Profile
+  + createProfile(user User, bio, interests, profilePicture): Profile
+  + updateProfile(user User, **kwargs): bool
+
+class Connection:
+  - connectionsList: []User
+  - pendingConnectionList: []User
+
+class ConnectionService:
+  - connections: map[User]Connection
+  + sendConnectionRequest(byUser User, toUser User): bool
+  + acceptConnectionRequest(user User, toAcceptuser User): bool
+  + declineConnectionRequest(user User, toAcceptuser User): bool
+  + listConnections(user User): Connection.connectionsList
+
+class Post:
+  - description: string
+  - image: string
+  - likes: int
+  - comments: []string
+  - createdOn: datetime
+
+class PostService:
+  - posts: map[User][]Post
+  + createPost(user User, description string, image string): Post
+  + likePost(user User, post Post): bool
+  + commentPost(user User, post Post, comment string): bool
+  + listPostByUser(user User): []Post
+
+class NewsFeedService:
+  - postService: PostService()
+  - connectionService: ConnectionService()
+  + getConnectionsOfUser(user User): []User
+  + getPostsOfUser(user User): []Post
+  + loadNewsFeed(user User): []Post
+
+
+1. Builder Pattern for createPost()
+2. Strategy Pattern for sorting posts
+3. Singleton Pattern 

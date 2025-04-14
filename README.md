@@ -1,39 +1,37 @@
-# Low Level Design Patterns in Golang
-
-In this repository, we will design some common systems which might help you in your Low-Level Design (LLD) or Machine Coding rounds of your interview. Everything will be implemented in **Golang**. If you want to gain experience with Go, these designs will help you significantly in getting a grasp of the language.
-
-## Design Framework
-
-For Low-Level Designs, I have created a framework that you can use for any design you want to make. Please keep in mind that this template is based on my approach. Your design might differ, potentially including more features, but everything will follow this general template. As we all know that **No Design is a Perfect Design**.
+# Designing a Social Network Like Facebook
 
 ### Requirements
 
-1. **Functional Requirements**:
-   - What should the system do?
+#### User Registration and Authentication:
+- Users should be able to create an account with their personal information, such as name, email, and password.
+- Users should be able to log in and log out of their accounts securely.
 
-2. **Non-Functional Requirements**:
-   - Considerations for speed, scale, and reliability.
+#### User Profiles:
+- Each user should have a profile with their information, such as profile picture, bio, and interests.
+- Users should be able to update their profile information.
 
-3. **Constraints**:
-   - Any limitations or restrictions.
+#### Friend Connections:
+- Users should be able to send friend requests to other users.
+- Users should be able to accept or decline friend requests.
+- Users should be able to view their list of friends.
 
-### Core Components
+#### Posts and Newsfeed:
+- Users should be able to create posts with text, images, or videos.
+- Users should be able to view a newsfeed consisting of posts from their friends and their own posts.
+- The newsfeed should be sorted in reverse chronological order.
 
-Identify the key parts of the system.
+#### Likes and Comments:
+- Users should be able to like and comment on posts.
+- Users should be able to view the list of likes and comments on a post.
 
-### Data Storage & Models
+#### Privacy and Security:
+- Users should be able to control the visibility of their posts and profile information.
+- The system should enforce secure access control to ensure data privacy.
 
-- How will data be stored? (Database, data structures)
-- Define essential entities and their relationships.
+#### Notifications:
+- Users should receive notifications for events such as friend requests, likes, comments, and mentions.
+- Notifications should be delivered in real-time.
 
-### Main Operations
-
-- Core actions and their algorithms.
-
-### Scalability
-
-- How will the system handle growth? (e.g., more users, more data)
-
-### Error Handling
-
-- Common and edge cases to consider.
+#### Scalability and Performance:
+- The system should be designed to handle a large number of concurrent users and high traffic load.
+- The system should be scalable and efficient in terms of resource utilization.
