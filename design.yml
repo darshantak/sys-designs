@@ -1,0 +1,46 @@
+class Book:
+  title: string
+  author: string
+  ISBN: string
+  publication: string
+  availability: bool
+
+class BookService:
+  - books: map[string]Book
+  + addBook(title, author, isbn, publication): Book
+  + updateBook(isbn string, **kwargs): Book
+  + deleteBook(isbn string ): bool
+  + getAvalaibiltyOfBook(isbn string): bool
+  
+class Member:
+  - name: string
+  - memberID: string
+  - contact: string
+
+class MemberService:
+  - members: map[string]Member
+  + registerMember(name, memberID, contact): Member
+
+enum OrderType:
+  - BORROW
+  - RETURN
+
+class Order:
+  - orderId: string
+  - orderType: OrderType
+  - user: Member
+  - book: Book
+
+class OrderService:
+  - orders: map[Member]Order
+  - usersToBooks: map[User][]Book
+  + borrowBook(orderId string, orderType, user Member, book Book): Order
+  + returnBook(orderId string, orderType, user Member, book Book): Order
+
+class LibraryApp:
+  + addBook(title, author, isbn, publication): Book
+  + updateBook(isbn string, **kwargs): Book
+  + deleteBook(isbn string ): bool
+  + registerMember(name, memberID, contact): Member
+  + borrowBook(orderId string, orderType, user Member, book Book): Order
+  + returnBook(orderId string, orderType, user Member, book Book): Order
